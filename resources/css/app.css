@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+    }
+
+    body {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #0f172a;
+        background-color: #f8fafc;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+@layer components {
+    .customer-card {
+        @apply rounded-2xl border border-slate-200 bg-white shadow-soft;
+    }
+    .customer-input {
+        @apply min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base text-slate-900 outline-none transition-colors duration-300 placeholder:text-slate-400 focus:border-brand focus:ring-4 focus:ring-red-100 disabled:bg-slate-50 disabled:text-slate-500;
+    }
+    .customer-button-primary {
+        @apply inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-200 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+    .customer-button-secondary {
+        @apply inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition-colors duration-300 hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-100 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+    .customer-eyebrow {
+        @apply text-xs font-bold uppercase tracking-[0.14em] text-brand;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .animate-reveal-up,
+    .animate-reveal-up-delay-1,
+    .animate-reveal-up-delay-2,
+    .animate-reveal-up-delay-3,
+    .animate-fade-in,
+    .animate-fade-out,
+    .animate-zoom-in,
+    .animate-modal-in,
+    .animate-modal-out,
+    .animate-slide-fade-in,
+    .animate-slide-fade-out {
+        animation-duration: 0.01ms !important;
+    }
+}
+
+@layer utilities {
+    .animate-reveal-up {
+        animation: reveal-up 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .animate-reveal-up-delay-1 {
+        animation: reveal-up 900ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
+    }
+    .animate-reveal-up-delay-2 {
+        animation: reveal-up 900ms cubic-bezier(0.22, 1, 0.36, 1) 200ms both;
+    }
+    .animate-reveal-up-delay-3 {
+        animation: reveal-up 900ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
+    }
+    .animate-fade-in {
+        animation: fade-in 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .animate-fade-out {
+        animation: fade-out 400ms cubic-bezier(0.4, 0, 1, 1) both;
+    }
+    .animate-zoom-in {
+        animation: zoom-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .animate-modal-in {
+        animation: modal-in 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .animate-modal-out {
+        animation: modal-out 400ms cubic-bezier(0.4, 0, 1, 1) both;
+    }
+    .animate-slide-fade-in {
+        animation: slide-fade-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .animate-slide-fade-out {
+        animation: slide-fade-out 350ms cubic-bezier(0.4, 0, 1, 1) both;
+    }
+}
+
+@keyframes reveal-up {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes modal-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(16px);
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes modal-out {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+    }
+}
+
+@keyframes slide-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-fade-out {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}

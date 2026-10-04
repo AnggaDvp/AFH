@@ -1,0 +1,1 @@
+import{r as o,A as e}from"./app-09fd74c8.js";function l(s){o.useEffect(()=>{let t=!1;const i=e.on("start",()=>{t=!0}),n=e.on("finish",()=>{t=!1}),r=window.setInterval(()=>{document.visibilityState!=="visible"||t||e.reload({only:[s]})},5e3);return()=>{window.clearInterval(r),i(),n()}},[s])}export{l as u};
